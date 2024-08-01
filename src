@@ -1,0 +1,37 @@
+def calculator():
+    try:
+        num1 = float(input("Enter the first number: "))
+        operation = input("Enter the operation (+, -, *, /): ")
+        num2 = float(input("Enter the second number: "))
+
+        if operation == "+":
+            result = num1 + num2
+        elif operation == "-":
+            result = num1 - num2
+        elif operation == "*":
+            result = num1 * num2
+        elif operation == "/":
+            if num2 == 0:
+                result = "Error: Division by zero"
+            else:
+                result = num1 / num2
+        else:
+            result = "Invalid operation"
+
+        print("Result:", result)
+
+        # Ask if the user wants to perform another calculation
+        repeat = input("Do you want to calculate again? (y/n): ")
+        if repeat.lower() == "y":
+            calculator()
+        elif repeat.lower() == "n":
+            print("Thank you for using the calculator!")
+        else:
+            print("Invalid response. Exiting the program.")
+
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
+
+# Call the function to start the calculator
+if __name__ == "__main__":
+    calculator()
